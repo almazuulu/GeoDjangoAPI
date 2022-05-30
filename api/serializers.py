@@ -7,7 +7,6 @@ class ServiceareaSerializer(serializers.ModelSerializer):
         model = ServiceArea
         fields = '__all__'
 
-
 class ProviderSerializer(serializers.ModelSerializer):
     serviceArea = serializers.SerializerMethodField()
 
