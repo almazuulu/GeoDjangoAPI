@@ -2,8 +2,9 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import ProviderSerializer
+from .serializers import ProviderSerializer, ServiceareaSerializer
 from provider.models import Provider
+from servicearea.models import ServiceArea
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -64,5 +65,45 @@ def providerDelete(request, pk):
     provider.delete()
 
     return Response(f'Item {provider.name} was successfully deleted!')
+
+@api_view(['GET'])
+def getListServiceAreas(request):
+    service_areas = ServiceArea.objects.all()
+    serializer = ServiceareaSerializer(service_areas, many=True)
+
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def serviceAreaDetail(request, pk):
+    service_area = ServiceArea.objects.get(pk = pk)
+    serializer = ServiceareaSerializer(service_area, many=False)
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def serviceAreaCreate(request):
+    serializer = ServiceareaSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def serviceAreaUpdate(request, pk):
+    service_area = ServiceArea.objects.get(pk = pk)
+    serializer = ServiceareaSerializer(instance=service_area, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def serviceAreaDelete(request, pk):
+    service_area = ServiceArea.objects.get(pk = pk)
+    service_area.delete()
+
+    return Response(f'Item {service_area.service_name} was successfully deleted!')
 
 
