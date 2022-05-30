@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from django.contrib.gis.geos import Point
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import ProviderSerializer, ServiceareaSerializer
@@ -30,7 +31,7 @@ class ProvidersListApi(generics.ListAPIView):
     queryset = Provider.objects.all()
     serializer_class = ProviderSerializer
 
-#api to see the detail of a provider
+#api to see the detail of provider area
 class ProviderDetailApi(generics.RetrieveAPIView):
     queryset = Provider.objects.all()
     serializer_class = ProviderSerializer
@@ -60,7 +61,7 @@ class ServiceAreasListApi(generics.ListAPIView):
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceareaSerializer
 
-#api to see the detail of a service area
+#api to see the detail of service area
 class ServiceDetailApi(generics.RetrieveAPIView):
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceareaSerializer

@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_gis',
+    'djmoney',
+    'phonenumber_field',
+    'django.contrib.gis',
     'provider.apps.ProviderConfig',
     'servicearea.apps.ServiceareaConfig',
     'api.apps.ApiConfig'
@@ -79,9 +83,13 @@ WSGI_APPLICATION = 'mozio.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        "NAME": "geodjango",
+        "USER": "postgres",
+        "PASSWORD": "pa$$w0rd",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
