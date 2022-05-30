@@ -30,5 +30,39 @@ def getAllProviders(request):
     providers = Provider.objects.all()
     serializer = ProviderSerializer(providers, many=True)
 
-    return Response(serializer)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def providerDetail(request, pk):
+    provider = Provider.objects.get(pk = pk)
+    serializer = ProviderSerializer(provider, many=False)
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def providerCreate(request):
+    serializer = ProviderSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def providerUpdate(request, pk):
+    provider = Provider.objects.get(pk = pk)
+    serializer = ProviderSerializer(instance=provider, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def providerDelete(request, pk):
+    provider = Provider.objects.get(pk = pk)
+    provider.delete()
+
+    return Response(f'Item {provider.name} was successfully deleted!')
+
 
