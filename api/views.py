@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from .serializers import ProviderSerializer, ServiceareaSerializer
 from provider.models import Provider
 from servicearea.models import ServiceArea
+from rest_framework import generics
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -20,90 +21,66 @@ def apiOverview(request):
         'Create Service area': '/servicearea-create/',
         'Update Service area': '/servicearea-update/<str:pk>/',
         'Delete Service area': '/servicearea-delete/<str:pk>/',
-
     }
 
     return Response(apiUrls)
 
+#api to list of all providers
+class ProvidersListApi(generics.ListAPIView):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderSerializer
 
-@api_view(['GET'])
-def getAllProviders(request):
-    providers = Provider.objects.all()
-    serializer = ProviderSerializer(providers, many=True)
+#api to see the detail of a provider
+class ProviderDetailApi(generics.RetrieveAPIView):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderSerializer
 
-    return Response(serializer.data)
+#api to create provider
+class ProviderCreateApi(generics.CreateAPIView):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderSerializer
 
-@api_view(['GET'])
-def providerDetail(request, pk):
-    provider = Provider.objects.get(pk = pk)
-    serializer = ProviderSerializer(provider, many=False)
+#api to update provider
+class ProviderUpdateApi(generics.RetrieveUpdateAPIView):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderSerializer
 
-    return Response(serializer.data)
+#api to delete provider
+class ProviderDeleteApi(generics.DestroyAPIView):
+    queryset = Provider.objects.all()
+    serializer_class = ProviderSerializer
 
-@api_view(['POST'])
-def providerCreate(request):
-    serializer = ProviderSerializer(data=request.data)
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(f'Item {instance.name} was successfully deleted!')
 
-    if serializer.is_valid():
-        serializer.save()
+#api to list of all service-areas
+class ServiceAreasListApi(generics.ListAPIView):
+    queryset = ServiceArea.objects.all()
+    serializer_class = ServiceareaSerializer
 
-    return Response(serializer.data)
+#api to see the detail of a service area
+class ServiceDetailApi(generics.RetrieveAPIView):
+    queryset = ServiceArea.objects.all()
+    serializer_class = ServiceareaSerializer
 
-@api_view(['POST'])
-def providerUpdate(request, pk):
-    provider = Provider.objects.get(pk = pk)
-    serializer = ProviderSerializer(instance=provider, data=request.data)
+#api to update service area
+class ServiceAreaCreateApi(generics.CreateAPIView):
+    queryset = ServiceArea.objects.all()
+    serializer_class = ServiceareaSerializer
 
-    if serializer.is_valid():
-        serializer.save()
+#api to update service area
+class ServiceAreaUpdateApi(generics.RetrieveUpdateAPIView):
+    queryset = ServiceArea.objects.all()
+    serializer_class = ServiceareaSerializer
 
-    return Response(serializer.data)
+#api to delete service area
+class ServiceAreaDeleteApi(generics.DestroyAPIView):
+    queryset = ServiceArea.objects.all()
+    serializer_class = ServiceareaSerializer
 
-@api_view(['DELETE'])
-def providerDelete(request, pk):
-    provider = Provider.objects.get(pk = pk)
-    provider.delete()
-
-    return Response(f'Item {provider.name} was successfully deleted!')
-
-@api_view(['GET'])
-def getListServiceAreas(request):
-    service_areas = ServiceArea.objects.all()
-    serializer = ServiceareaSerializer(service_areas, many=True)
-
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def serviceAreaDetail(request, pk):
-    service_area = ServiceArea.objects.get(pk = pk)
-    serializer = ServiceareaSerializer(service_area, many=False)
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def serviceAreaCreate(request):
-    serializer = ServiceareaSerializer(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def serviceAreaUpdate(request, pk):
-    service_area = ServiceArea.objects.get(pk = pk)
-    serializer = ServiceareaSerializer(instance=service_area, data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
-@api_view(['DELETE'])
-def serviceAreaDelete(request, pk):
-    service_area = ServiceArea.objects.get(pk = pk)
-    service_area.delete()
-
-    return Response(f'Item {service_area.service_name} was successfully deleted!')
-
-
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(f'Item {instance.service_name} was successfully deleted!')

@@ -16,4 +16,3 @@ class Provider(models.Model):
         return self.name
 
 
-
