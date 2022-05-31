@@ -59,9 +59,10 @@ To see all Api Overview please visit: <a href="http://geodjangoapi.herokuapp.com
 </ul>
 
 <h5>Results: </h5>
-<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/ width=550; height=720>
 
-![Alt text](https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/StatueOfLibertyArea.png?raw=true =250x250)
+![Alt text](https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png?raw=true)
+
+![Alt text](https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/StatueOfLibertyArea.png?raw=true)
 
 
 
