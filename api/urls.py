@@ -2,7 +2,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', apiOverview, name = 'api-overview'),
 
     #api route for providers
     path('providers/', ProvidersListApi.as_view(), name = 'providerslist'),

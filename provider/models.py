@@ -1,4 +1,3 @@
-from django.db import models
 from django.contrib.gis.db import models
 from djmoney.models.fields import CurrencyField
 from phonenumber_field.modelfields import PhoneNumberField

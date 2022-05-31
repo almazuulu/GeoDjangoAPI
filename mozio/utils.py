@@ -10,3 +10,5 @@ class LanguageField(models.CharField):
 
     def get_internal_type(self):
         return "CharField"
+
+

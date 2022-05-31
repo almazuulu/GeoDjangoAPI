@@ -1,6 +1,3 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from django.contrib.gis.geos import Point
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import ProviderSerializer, ServiceareaSerializer
@@ -11,17 +8,17 @@ from rest_framework import generics
 @api_view(['GET'])
 def apiOverview(request):
     apiUrls = {
-        'All providers': '/providers/',
-        'Detail view': '/provider/<str:pk>/',
-        'Create Provider': '/provider-create/',
-        'Update Provider': '/provider-update/<str:pk>/',
-        'Delete Provider':'/provider-delete/<str:pk>/',
+        'All providers': '[url_address]/api/providers/',
+        'Provider Detail view': '[url_address]/api/provider/<str:pk>/',
+        'Create Provider': '[url_address]/api/provider-create/',
+        'Update Provider': '[url_address]/api/provider-update/<str:pk>/',
+        'Delete Provider':'[url_address]/api/provider-delete/<str:pk>/',
 
-        'All service areas': '/serviceareas/',
-        'Service area Detail view': '/serviceareas/<str:pk>/',
-        'Create Service area': '/servicearea-create/',
-        'Update Service area': '/servicearea-update/<str:pk>/',
-        'Delete Service area': '/servicearea-delete/<str:pk>/',
+        'All service areas': '[url_address]/api/serviceareas/',
+        'Service Area Detail View': '[url_address]/api/servicearea/<str:pk>',
+        'Create Service area': '[url_address]/api/servicearea-create/',
+        'Update Service area': '[url_address]/api/servicearea-update/<str:pk>/',
+        'Delete Service area': '[url_address]/api/servicearea-delete/<str:pk>/'
     }
 
     return Response(apiUrls)
@@ -75,6 +72,7 @@ class ServiceAreaCreateApi(generics.CreateAPIView):
 class ServiceAreaUpdateApi(generics.RetrieveUpdateAPIView):
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceareaSerializer
+
 
 #api to delete service area
 class ServiceAreaDeleteApi(generics.DestroyAPIView):
