@@ -1,6 +1,4 @@
 from rest_framework import serializers
-from rest_framework.relations import PrimaryKeyRelatedField
-
 from provider.models import Provider
 from servicearea.models import ServiceArea
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
