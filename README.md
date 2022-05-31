@@ -13,9 +13,6 @@ To combat this, in this solution - it was defined custom polygons as their "serv
 <li>Use unit tests to test your API</li>
 </ul>
 
-<h5>Results: </h5>
-<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/ width:350px; height:420px;>
-
 <h3> Description of using API: </h3>
 
 <h4><u>Credentials: </u></h4>
@@ -52,6 +49,10 @@ To see all Api Overview please visit: <a href="http://geodjangoapi.herokuapp.com
 <li>To Update Service Area use API: `PUT /api/servicearea-update/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea-update/3357c9f5-891e-4996-bd49-43fb640a623a">http://geodjangoapi.herokuapp.com/api/servicearea-update/3357c9f5-891e-4996-bd49-43fb640a623a</a></li>
 <li>To Service Area use API: `DELETE /api/servicearea-delete/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea-delete/3357c9f5-891e-4996-bd49-43fb640a623a">http://geodjangoapi.herokuapp.com/api/servicearea-delete/3357c9f5-891e-4996-bd49-43fb640a623a</a></li>
 </ul>
+
+
+<h5>Results: </h5>
+<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/ width:350px; height:420px;>
 
 
 
