@@ -14,7 +14,7 @@ To combat this, in this solution - it was defined custom polygons as their "serv
 </ul>
 
 <h5>Results: </h5>
-<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/>
+<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/ width:350px; height:420px;>
 
 <h3> Description of using API: </h3>
 
