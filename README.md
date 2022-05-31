@@ -15,10 +15,24 @@ To combat this, in this solution - it was defined custom polygons as their "serv
 <h3> Description of using API: </h3>
 <ul>
 <li>To see all Api Overview please visit: <a href="http://geodjangoapi.herokuapp.com">http://geodjangoapi.herokuapp.com </a></li>
-<li>To see the list of all Providers use API: /api/providers/: <a href="http://geodjangoapi.herokuapp.com/api/providers/">http://geodjangoapi.herokuapp.com/api/providers/</a></li>
-<li>To see provider detail view use API: /api/provider/[id] Example: <a href="http://geodjangoapi.herokuapp.com/api/provider/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b">http://geodjangoapi.herokuapp.com/api/provider/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b</a></li>
-<li>To Create a provider use API: /api/provider-create/ Example: <a href="http://geodjangoapi.herokuapp.com/api/provider-create/">http://geodjangoapi.herokuapp.com/api/provider-create/</a></li>
-
+</ul>
+<h4><u>For Providers: </u></h4>
+<ul></ul>
+<li>To see the list of all Providers use API: `GET /api/providers/: <a href="http://geodjangoapi.herokuapp.com/api/providers/">http://geodjangoapi.herokuapp.com/api/providers/</a></li>
+<li>To see provider detail view use API: `GET /api/provider/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/provider/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b">http://geodjangoapi.herokuapp.com/api/provider/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b</a></li>
+<li>To Create a provider use API:`POST /api/provider-create/ Example: <a href="http://geodjangoapi.herokuapp.com/api/provider-create/">http://geodjangoapi.herokuapp.com/api/provider-create/</a></li>
+<li>To Update Provider use API: `PUT /api/provider-update/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/provider-update/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b">http://geodjangoapi.herokuapp.com/api/provider-update/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b</a></li>
+<li>To Delete Provider use API: `DELETE /api/provider-delete/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/provider-delete/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b">http://geodjangoapi.herokuapp.com/api/provider-delete/636fd81c-ada5-48f7-ae30-42cf8e4e7e5b</a></li>
 </ul>
 
+
+</ul>
+<h4><u>For Service Area: </u></h4>
+<ul></ul>
+<li>To see the list of all Service Areas use API: `GET /api/serviceareas/: <a href="http://geodjangoapi.herokuapp.com/api/serviceareas/">http://geodjangoapi.herokuapp.com/api/serviceareas/</a></li>
+<li>To see Service Area Detail View use API: `GET /api/servicearea/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea/3357c9f5-891e-4996-bd49-43fb640a623a">http://geodjangoapi.herokuapp.com/api/servicearea/3357c9f5-891e-4996-bd49-43fb640a623a</a></li>
+<li>To Create Service Area use API:`POST /api/servicearea-create/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea-create/">http://geodjangoapi.herokuapp.com/api/servicearea-create/</a></li>
+<li>To Update Service Area use API: `PUT /api/servicearea-update/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea-update/3357c9f5-891e-4996-bd49-43fb640a623a">http://geodjangoapi.herokuapp.com/api/servicearea-update/3357c9f5-891e-4996-bd49-43fb640a623a</a></li>
+<li>To Service Area use API: `DELETE /api/servicearea-delete/[id]/ Example: <a href="http://geodjangoapi.herokuapp.com/api/servicearea-delete/3357c9f5-891e-4996-bd49-43fb640a623a">http://geodjangoapi.herokuapp.com/api/servicearea-delete/3357c9f5-891e-4996-bd49-43fb640a623a</a></li>
+</ul>
 
