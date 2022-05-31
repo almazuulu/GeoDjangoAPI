@@ -12,6 +12,10 @@ To combat this, in this solution - it was defined custom polygons as their "serv
 <li>Create a specific endpoint that takes a lat/lng pair as arguments and return a list of all polygons that include the given lat/lng. The name of the polygon, provider's name, and price should be returned for each polygon. </li>
 <li>Use unit tests to test your API</li>
 </ul>
+
+<h5>Results: </h5>
+<img src ="https://github.com/almazuulu/mozio/blob/master/SreenshotsApp/AdminServiceAreaParis.png"/>
+
 <h3> Description of using API: </h3>
 
 <h4><u>Credentials: </u></h4>
