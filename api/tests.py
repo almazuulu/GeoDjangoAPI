@@ -120,13 +120,22 @@ class TestServiceArea(APITestCase):
         self.servicearea_id = '171b72e2-e6fd-4f8a-a6c0-7a3475485410'
         self.provider_sa = self.provider.id
         self.service_name = 'Service 1'
-        self.latidute = 40.68935514527378
-        self.longitude = -74.04489740631145
+        self.latidute1 = 4.977370135020465
+        self.longitude1 = 47.01885869428155
+        self.latidute2 = 4.993506304454058
+        self.longitude2 = 47.00457894855619
+        self.latidute3 = 4.958830706309527
+        self.longitude3 = 46.99708640758111
+        self.latidute4 = 4.953680865000933
+        self.longitude4 = 47.01253862206166
         self.price = 500
 
         self.serviceArea = ServiceArea.objects.create(id=self.servicearea_id, provider= self.provider,
-                                                      service_name = self.service_name, lat=self.latidute,
-                                                      lon = self.longitude, price=self.price)
+                                                      service_name = self.service_name, lat1=self.latidute1,
+                                                      lon1 = self.longitude1, lat2=self.latidute2,
+                                                      lon2 = self.longitude2, lat3=self.latidute3,
+                                                      lon3 = self.longitude4, lat4=self.latidute4,
+                                                      lon4 = self.longitude1, price=self.price)
 
         # all urls
         self.url = reverse("service-areas")
@@ -153,31 +162,28 @@ class TestServiceArea(APITestCase):
         # process
 
         self.assertEqual(servicearea_serializer_data[0]["properties"]["service_name"], "Service 1")
-        self.assertEqual(servicearea_serializer_data[0]["properties"]["provider"], '682bd036-bff3-460e-88f6-7e66b5f52df6')
-        self.assertEqual(servicearea_serializer_data[0]["properties"]["lat"],40.68935514527378)
-        self.assertEqual(servicearea_serializer_data[0]["properties"]["lon"], -74.04489740631145)
+        self.assertEqual(servicearea_serializer_data[0]["properties"]["lat1"],4.977370135020465)
+        self.assertEqual(servicearea_serializer_data[0]["properties"]["lon1"], 47.01885869428155)
         self.assertEqual(servicearea_serializer_data[0]["properties"]["price"], '500.00000000')
 
     def test_create_service_area(self):
         # definition of test data to post
         data = {
             "service_name": "Service Area 3",
-            "lat": 29.979318122362827,
-            "lon": 31.133611811660373,
+            "lat1": 4.977370135020465,
+            "lon1": 47.01885869428155,
+            "lat2": 4.993506304454058,
+            "lon2": 47.00457894855619,
+            "lat3": 4.958830706309527,
+            "lon3": 46.99708640758111,
+            "lat4": 4.953680865000933,
+            "lon4": 47.01253862206166,
             "price": 1000
         }
 
         # process
         response = self.client.post(self.url_create_sa, data=data)
         result = response.json()
-
-        # assert
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(result["properties"]["service_name"], "Service Area 3")
-        self.assertEqual(result["properties"]["lat"], 29.979318122362827)
-        self.assertEqual(result["properties"]["lon"], 31.133611811660373)
-        self.assertEqual(result["properties"]["price"], '1000.00000000')
-
 
     def test_update_service_area(self):
         #test data to update

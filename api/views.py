@@ -1,9 +1,14 @@
+from django.core import exceptions
+from pip._vendor.urllib3.util import request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.utils import json
+
 from .serializers import ProviderSerializer, ServiceareaSerializer
 from provider.models import Provider
 from servicearea.models import ServiceArea
-from rest_framework import generics
+from rest_framework import generics, status
+
 
 @api_view(['GET'])
 def apiOverview(request):

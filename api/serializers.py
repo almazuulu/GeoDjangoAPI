@@ -19,7 +19,10 @@ class ServiceareaSerializer(GeoFeatureModelSerializer):
 
     class Meta:
         model = ServiceArea
-        fields = ('id', 'service_name', 'provider', 'provider_id', 'lat', 'lon', 'price')
+        fields = ('id', 'service_name', 'provider', 'provider_id', 'lat1', 'lon1',
+                  'lat2', 'lon2', 'lat3', 'lon3',
+                  'lat4', 'lon4', 'price')
+
         geo_field = "location"
 
 
