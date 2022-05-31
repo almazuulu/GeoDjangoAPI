@@ -1,1 +1,1 @@
-web: gunicorn myresumesite.wsgi
+web: gunicorn mozio.wsgi
