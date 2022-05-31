@@ -26,3 +26,4 @@ class ServiceareaSerializer(GeoFeatureModelSerializer):
         geo_field = "location"
 
 
+

@@ -20,11 +20,11 @@ class ServiceArea(models.Model):
     lat2 = models.FloatField(_("Latitude 2"), null=True, blank=True)
     lon2 = models.FloatField(_("Longitude 2"), null=True,blank=True)
     lat3 = models.FloatField(_("Latitude 3"), null=True, blank=True)
-    lon3 = models.FloatField(_("Longitude 3"), null=True, blank=True)
+    lon3 = models.FloatField(_("Longitde 3"), null=True, blank=True)
     lat4 = models.FloatField(_("Latitude 4"), null=True, blank=True)
     lon4 = models.FloatField(_("Longitude 4"), null=True, blank=True)
     location = models.PolygonField(srid=4326, null=True, blank=True)
-    price = MoneyField(max_digits=19, decimal_places=8, default=None)
+    price = MoneyField(max_digits=20, decimal_places=8, default=None)
 
     class Meta:
         ordering = ['service_name']
@@ -33,13 +33,14 @@ class ServiceArea(models.Model):
         return self.service_name
 
     def save(self, *args, **kwargs):
-        coordinate_pair1 = (self.lat1, self.lon1)
-        coordinate_pair2 = (self.lat2, self.lon2)
-        coordinate_pair3 = (self.lat3, self.lon3)
-        coordinate_pair4 = (self.lat4, self.lon4)
+        if self.location is None:
+            coordinate_pair1 = (self.lat1, self.lon1)
+            coordinate_pair2 = (self.lat2, self.lon2)
+            coordinate_pair3 = (self.lat3, self.lon3)
+            coordinate_pair4 = (self.lat4, self.lon4)
 
-        coord_list = (coordinate_pair1, coordinate_pair2, coordinate_pair3, coordinate_pair4, coordinate_pair1)
-        self.location = Polygon(coord_list)
+            self.location = Polygon( (coordinate_pair1, coordinate_pair2, coordinate_pair3, coordinate_pair4, coordinate_pair1) )
+
 
         super(ServiceArea, self).save(*args, **kwargs)
 
